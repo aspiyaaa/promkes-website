@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\BkjController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\StrukturController;
@@ -38,7 +39,8 @@ Route::view('/fasilitaslain', 'pages.fasilitas.fasilitaslain');
 Route::view('/peminjaman', 'pages.fasilitas.peminjaman');
 
 // navbar bertita
-Route::view('/berita', 'pages.berita');
+Route::get('/news', [BeritaController::class, 'index']);
+Route::get('/news/{slug}', [BeritaController::class, 'detailuser']);
 
 // ==================== HALAMAN ADMIN ====================
 Route::get('/admin', [AdminController::class, 'index']);
@@ -82,3 +84,12 @@ Route::get('/ukmj/{id}', [UkmjController::class, 'detail']);
 Route::get('/ukmj/{id}/edit', [UkmjController::class, 'edit']);
 Route::put('/ukmj/{id}', [UkmjController::class, 'update']);
 Route::delete('/ukmj/{id}', [UkmjController::class, 'destroy']);
+
+// berita
+Route::get('/berita', [BeritaController::class, 'berita']);
+Route::get('/berita/create', [BeritaController::class, 'create']);
+Route::post('/berita', [BeritaController::class, 'store']);
+Route::get('/berita/{slug}', [BeritaController::class, 'detail']);
+Route::get('/berita/{id}/edit', [BeritaController::class, 'edit']);
+Route::put('/berita/{id}', [BeritaController::class, 'update']);
+Route::delete('/berita/{id}', [BeritaController::class, 'destroy']);

@@ -127,7 +127,7 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="/berita">Berita</a>
+                    <a class="nav-link" href="/news">Berita</a>
                 </li>
                 
             </ul>

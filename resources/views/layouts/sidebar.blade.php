@@ -38,14 +38,14 @@
         Menu Utama
     </div>
 
-    <li class="nav-item {{ Request::is('civitas*') || Request::is('kategori*') || Request::is('badan_kelengkapan_jurusan*') || Request::is('ukmj*') ? 'active' : '' }}">
-        <a class="nav-link {{ Request::is('civitas*') || Request::is('kategori*') || Request::is('badan_kelengkapan_jurusan*') || Request::is('ukmj*') ? '' : 'collapsed' }}" 
+    <li class="nav-item {{ Request::is('civitas*') || Request::is('kategori*') || Request::is('badan_kelengkapan_jurusan*') || Request::is('ukmj*') || Request::is('berita*') ? 'active' : '' }}">
+        <a class="nav-link {{ Request::is('civitas*') || Request::is('kategori*') || Request::is('badan_kelengkapan_jurusan*') || Request::is('ukmj*') || Request::is('berita*') ? '' : 'collapsed' }}" 
            href="#" data-toggle="collapse" data-target="#collapseDataMaster"
            aria-expanded="true" aria-controls="collapseDataMaster">
             <i class="fas fa-fw fa-folder-open"></i>
             <span>Manajemen Data</span>
         </a>
-        <div id="collapseDataMaster" class="collapse {{ Request::is('civitas*') || Request::is('kategori*') || Request::is('badan_kelengkapan_jurusan*') || Request::is('ukmj*') ? 'show' : '' }}" 
+        <div id="collapseDataMaster" class="collapse {{ Request::is('civitas*') || Request::is('kategori*') || Request::is('badan_kelengkapan_jurusan*') || Request::is('ukmj*') || Request::is('berita*') ? 'show' : '' }}" 
              aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded shadow-sm">
                 <h6 class="collapse-header text-gray-500 font-weight-bold">Daftar Modul:</h6>
@@ -64,6 +64,10 @@
                 
                 <a class="collapse-item d-flex align-items-center gap-2 {{ Request::is('ukmj*') ? 'active' : '' }}" href="/ukmj">
                     <i class="fas fa-running fa-sm text-gray-400 mr-1"></i> Data UKMJ
+                </a>
+
+                <a class="collapse-item d-flex align-items-center gap-2 {{ Request::is('berita*') ? 'active' : '' }}" href="/berita">
+                    <i class="fas fa-newspaper fa-sm text-gray-400 mr-1"></i> Data Berita
                 </a>
             </div>
         </div>
