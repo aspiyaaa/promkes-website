@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\BkjController;
+use App\Http\Controllers\GaleriBkjController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\StrukturController;
 use App\Http\Controllers\UkmjController;
@@ -28,6 +29,7 @@ Route::get('/struktur/{id}', [StrukturController::class, 'detailuser']);// tampi
 
 // navbar kemahasiswaan
 Route::get('/BKJ', [BkjController::class, 'index']);
+Route::get('/galeri/{id}', [GaleriBkjController::class, 'detailuser']);
 Route::get('/UKMJ', [UkmjController::class, 'index']);
 Route::view('/layanan', 'pages.kemahasiswaan.layanan');
 Route::view('/tracer', 'pages.kemahasiswaan.tracer');
@@ -75,6 +77,16 @@ Route::get('/badan_kelengkapan_jurusan/{id}', [BkjController::class, 'detail']);
 Route::get('/badan_kelengkapan_jurusan/{id}/edit', [BkjController::class, 'edit']);
 Route::put('/badan_kelengkapan_jurusan/{id}', [BkjController::class, 'update']);
 Route::delete('/badan_kelengkapan_jurusan/{id}', [BkjController::class, 'destroy']);
+
+// galeri bkj
+Route::get('/galeri_bkj', [GaleriBkjController::class, 'galeri']);
+Route::get('/galeri_bkj/create', [GaleriBkjController::class, 'create']);
+Route::post('/galeri_bkj', [GaleriBkjController::class, 'store']);
+Route::get('/galeri_bkj/{id}', [GaleriBkjController::class, 'detail']);
+Route::get('/galeri_bkj/{id}/edit', [GaleriBkjController::class, 'edit']);
+Route::put('/galeri_bkj/{id}', [GaleriBkjController::class, 'update']);
+Route::delete('/galeri_bkj/{id}', [GaleriBkjController::class, 'destroy']);
+
 
 // unit kegiatan mahasiswa
 Route::get('/ukmj', [UkmjController::class, 'ukmj']);

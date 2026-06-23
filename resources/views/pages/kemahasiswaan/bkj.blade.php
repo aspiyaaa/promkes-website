@@ -55,23 +55,21 @@
     opacity: 0.9;
 }
 
-/* Galeri Foto Kegiatan Melengkung */
-.gallery-img-wrapper {
+/* Desain Tombol Galeri Kegiatan Baru */
+.btn-galeri-bkj {
+    background-color: #2e636e;
+    color: #ffffff !important;
+    border: none;
     border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-    aspect-ratio: 4 / 3; /* Memastikan frame foto berasio konsisten dan proporsional */
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    transition: all 0.3s ease;
 }
 
-.gallery-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.gallery-img-wrapper:hover .gallery-img {
-    transform: scale(1.1); /* Efek zoom estetik saat foto disentuh/di-hover */
+.btn-galeri-bkj:hover {
+    background-color: #20464e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46, 99, 110, 0.2);
 }
 
 /* 📱 OPTIMASI RESEPIF UNTUK LAYAR HP ANDROID */
@@ -98,90 +96,62 @@
         font-size: 0.875rem !important;
         line-height: 1.6;
     }
-    
-    /* Mengubah susunan grid galeri foto di HP agar lebih hemat ruang */
-    .gallery-grid {
-        --bs-gutter-x: 0.5rem !important;
-        --bs-gutter-y: 0.5rem !important;
-    }
 }
 </style>
 
 <div class="container org-container-main pt-3 pb-5 mt-3">
     <div class="text-center">
-            <h4 class="fw-bold tracking-wide text-uppercase mb-1">Daftar Badan Kelengkapan Jurusan</h4>
-            <p class="text-muted small">Promosi Kesehatan</p>
-        </div>
+        <h4 class="fw-bold tracking-wide text-uppercase mb-1">Daftar Badan Kelengkapan Jurusan</h4>
+        <p class="text-muted small">Promosi Kesehatan</p>
+    </div>
     <div class="row g-5 justify-content-center pt-4">
         
         @forelse ($data_bkj as $data)
         <div class="col-12 col-lg-6 mt-5">
-            <div class="card org-card h-100 p-4 pt-4">
+            <div class="card org-card h-100 p-4 pt-4 d-flex flex-column justify-content-between">
                 
-                <!-- Lingkaran Logo Dinamis -->
-                <div class="org-logo-wrapper mt-3">
-                    @if ($data->logo)
-                        <img src="{{ asset('uploads/bkj/' . $data->logo) }}" class="org-logo" alt="Logo {{ $data->nama_bkj }}">
-                    @else
-                        <!-- Menggunakan gambar siluet default apabila logo tidak tersedia -->
-                        <img src="{{ asset('assets/default-logo.png') }}" class="org-logo" alt="Logo Default">
-                    @endif
-                </div>
-
-                <div class="card-body text-center p-0 mt-2">
-                    <!-- Nama BKJ Dinamis -->
-                    <h4 class="card-title fw-bold text-dark mb-1">{{ $data->nama_bkj }}</h4>
-                    <p class="text-muted small mb-3 fw-medium" style="color: #ff6600 !important;">Promosi Kesehatan</p>
-                    
-                    <!-- Sosial Media Mentah (Bisa kamu modifikasi linknya nanti jikalau sudah ada kolom sosmed di database) -->
-                    <div class="mb-4">
-                        @if($data->medsos)
-                            <a href="{{ $data->medsos }}" target="_blank" class="btn btn-instagram btn-sm d-inline-flex align-items-center gap-2 shadow-sm">
-                                <i class="bi bi-instagram"></i> Kunjungi Instagram
-                            </a>
+                <div>
+                    <div class="org-logo-wrapper mt-3">
+                        @if ($data->logo)
+                            <img src="{{ asset('uploads/bkj/' . $data->logo) }}" class="org-logo" alt="Logo {{ $data->nama_bkj }}">
                         @else
-                            <button class="btn btn-light btn-sm d-inline-flex align-items-center gap-2 border disabled" style="border-radius: 30px;">
-                                <i class="bi bi-instagram text-muted"></i> <span class="text-muted small">Belum ada sosmed</span>
-                            </button>
+                            <img src="{{ asset('assets/default-logo.png') }}" class="org-logo" alt="Logo Default">
                         @endif
                     </div>
-                    
-                    <hr class="opacity-10 my-3">
-                    
-                    <!-- Deskripsi Dinamis -->
-                    <p class="text-secondary mb-4 px-1" style="text-align: justify; line-height: 1.7; white-space: pre-line;">
-                        {{ $data->deskripsi }}
-                    </p>
 
-                    <!-- Bagian Dokumentasi Kegiatan Kegiatan Statis (Dibiarkan Sesuai Request) -->
-                    <div class="text-start">
-                        <h6 class="fw-bold text-dark mb-3 small text-uppercase tracking-wider" style="color: #2e636e !important;">
-                            <i class="bi bi-images me-1"></i> Dokumentasi Kegiatan
-                        </h6>
-                        <div class="row gallery-grid g-2">
-                            <div class="col-4">
-                                <div class="gallery-img-wrapper">
-                                    <img src="{{ asset('assets/kegiatan-hima1.jpg') }}" class="gallery-img" alt="Kegiatan 1">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="gallery-img-wrapper">
-                                    <img src="{{ asset('assets/kegiatan-hima2.jpg') }}" class="gallery-img" alt="Kegiatan 2">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="gallery-img-wrapper">
-                                    <img src="{{ asset('assets/kegiatan-hima3.jpg') }}" class="gallery-img" alt="Kegiatan 3">
-                                </div>
-                            </div>
+                    <div class="card-body text-center p-0 mt-2">
+                        <h4 class="card-title fw-bold text-dark mb-1">{{ $data->nama_bkj }}</h4>
+                        <p class="text-muted small mb-3 fw-medium" style="color: #ff6600 !important;">Promosi Kesehatan</p>
+                        
+                        <div class="mb-4">
+                            @if($data->medsos)
+                                <a href="{{ $data->medsos }}" target="_blank" class="btn btn-instagram btn-sm d-inline-flex align-items-center gap-2 shadow-sm">
+                                    <i class="bi bi-instagram"></i> Kunjungi Instagram
+                                </a>
+                            @else
+                                <button class="btn btn-light btn-sm d-inline-flex align-items-center gap-2 border disabled" style="border-radius: 30px;">
+                                    <i class="bi bi-instagram text-muted"></i> <span class="text-muted small">Belum ada sosmed</span>
+                                </button>
+                            @endif
                         </div>
+                        
+                        <hr class="opacity-10 my-3">
+                        
+                        <p class="text-secondary mb-4 px-1" style="text-align: justify; line-height: 1.7; white-space: pre-line;">
+                            {{ $data->deskripsi }}
+                        </p>
                     </div>
-
                 </div>
+
+                <div class="text-center mt-auto pt-2">
+                    <a href="/galeri/{{ $data->id }}" class="btn btn-galeri-bkj w-100 d-inline-flex align-items-center justify-content-center gap-2 shadow-sm">
+                        <i class="bi bi-images"></i> Lihat Galeri Kegiatan
+                    </a>
+                </div>
+
             </div>
         </div>
         @empty
-        <!-- Keadaan jika tidak ada data sama sekali di dalam tabel BKJ -->
         <div class="col-12 text-center py-5 text-muted">
             <i class="bi bi-folder-x display-1 opacity-50 mb-3"></i>
             <h5>Belum ada data Badan Kelengkapan Jurusan yang dimuat.</h5>

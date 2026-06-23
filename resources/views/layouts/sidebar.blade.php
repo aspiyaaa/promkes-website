@@ -1,8 +1,8 @@
 <style>
     .collapse-inner .collapse-item.active {
-    background-color: #f8f9fc !important;
-    color: #4e73df !important;
-    font-weight: bold;
+        background-color: #f8f9fc !important;
+        color: #4e73df !important;
+        font-weight: bold;
     }
     .collapse-inner .collapse-item.active i {
         color: #4e73df !important;
@@ -48,7 +48,7 @@
         <div id="collapseDataMaster" class="collapse {{ Request::is('civitas*') || Request::is('kategori*') || Request::is('badan_kelengkapan_jurusan*') || Request::is('ukmj*') || Request::is('berita*') ? 'show' : '' }}" 
              aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded shadow-sm">
-                <h6 class="collapse-header text-gray-500 font-weight-bold">Daftar Modul:</h6>
+                <h6 class="collapse-header text-gray-500 font-weight-bold">Daftar Data:</h6>
                 
                 <a class="collapse-item d-flex align-items-center gap-2 {{ Request::is('civitas*') ? 'active' : '' }}" href="/civitas">
                     <i class="fas fa-users fa-sm text-gray-400 mr-1"></i> Data Civitas
@@ -68,6 +68,29 @@
 
                 <a class="collapse-item d-flex align-items-center gap-2 {{ Request::is('berita*') ? 'active' : '' }}" href="/berita">
                     <i class="fas fa-newspaper fa-sm text-gray-400 mr-1"></i> Data Berita
+                </a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item {{ Request::is('galeri_bkj*') || Request::is('galeri_ukmj*') ? 'active' : '' }}">
+        <a class="nav-link {{ Request::is('galeri_bkj*') || Request::is('galeri_ukmj*') ? '' : 'collapsed' }}" 
+           href="#" data-toggle="collapse" data-target="#collapseGaleri"
+           aria-expanded="true" aria-controls="collapseGaleri">
+            <i class="fas fa-fw fa-images"></i>
+            <span>Galeri</span>
+        </a>
+        <div id="collapseGaleri" class="collapse {{ Request::is('galeri_bkj*') || Request::is('galeri_ukmj*') ? 'show' : '' }}" 
+             aria-labelledby="headingGaleri" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded shadow-sm">
+                <h6 class="collapse-header text-gray-500 font-weight-bold">Kategori Galeri:</h6>
+                
+                <a class="collapse-item d-flex align-items-center gap-2 {{ Request::is('galeri_bkj*') ? 'active' : '' }}" href="/galeri_bkj">
+                    <i class="fas fa-folder fa-sm text-gray-400 mr-1"></i> Galeri BKJ
+                </a>
+                
+                <a class="collapse-item d-flex align-items-center gap-2 {{ Request::is('galeri_ukmj*') ? 'active' : '' }}" href="/galeri_ukmj">
+                    <i class="fas fa-folder fa-sm text-gray-400 mr-1"></i> Galeri UKMJ
                 </a>
             </div>
         </div>
