@@ -14,4 +14,9 @@ class bkj extends Model
 
     // Proteksi primary key agar tidak diisi manual via mass assignment
     protected $guarded = ['id_bkj'];
+
+    public function galeri()
+    {
+        return $this->hasMany(galeriBkj::class, 'bkj_id', 'id_bkj');
+    }
 }

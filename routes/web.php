@@ -29,7 +29,7 @@ Route::get('/struktur/{id}', [StrukturController::class, 'detailuser']);// tampi
 
 // navbar kemahasiswaan
 Route::get('/BKJ', [BkjController::class, 'index']);
-Route::get('/galeri/{id}', [GaleriBkjController::class, 'detailuser']);
+Route::get('/BKJ/{id_bkj}/galeri', [GaleriBkjController::class, 'showGaleri'])->name('bkj.galeri');
 Route::get('/UKMJ', [UkmjController::class, 'index']);
 Route::view('/layanan', 'pages.kemahasiswaan.layanan');
 Route::view('/tracer', 'pages.kemahasiswaan.tracer');

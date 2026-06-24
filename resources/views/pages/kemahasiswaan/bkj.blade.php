@@ -144,7 +144,7 @@
                 </div>
 
                 <div class="text-center mt-auto pt-2">
-                    <a href="/galeri/{{ $data->id }}" class="btn btn-galeri-bkj w-100 d-inline-flex align-items-center justify-content-center gap-2 shadow-sm">
+                    <a href="{{ route('bkj.galeri', $data->id_bkj) }}" class="btn btn-galeri-bkj w-100 d-inline-flex align-items-center justify-content-center gap-2 shadow-sm">
                         <i class="bi bi-images"></i> Lihat Galeri Kegiatan
                     </a>
                 </div>

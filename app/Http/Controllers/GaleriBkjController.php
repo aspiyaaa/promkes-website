@@ -31,6 +31,15 @@ class GaleriBkjController extends Controller
         return view('pages.admin.galeriBkj.show', ['data_galeri' => $galeri]);
     }
 
+    // Menampilkan halaman galeri foto sesuai BKJ yang dipilih
+    public function showGaleri(String $id_bkj)
+    {
+        // Cari data bkj berdasarkan id, jika tidak ada langsung memunculkan error 404
+        // Sekaligus meload relasi 'galeri' yang ada di model bkj
+        $bkj = bkj::with('galeri')->findOrFail($id_bkj);
+
+        return view('pages.kemahasiswaan.detailBkj', compact('bkj'));
+    }
     /**
      * Menampilkan form tambah data galeri
      */
@@ -94,20 +103,20 @@ class GaleriBkjController extends Controller
         return view('pages.admin.galeriBkj.detail', ['detail_galeri' => $detail]);
     }
 
-    public function detailuser(String $id_bkj)
-    {
-        $bkj = DB::table('bkj')->where('id', $id_bkj)->first();
+    // public function detailuser(String $id_bkj)
+    // {
+    //     $bkj = DB::table('bkj')->where('id', $id_bkj)->first();
 
-        if (!$bkj) {
-            abort(404);
-        }
+    //     if (!$bkj) {
+    //         abort(404);
+    //     }
 
-        $list_galeri = DB::table('galeri_bkj')
-                        ->where('bkj_id', $id_bkj) 
-                        ->get();
+    //     $list_galeri = DB::table('galeri_bkj')
+    //                     ->where('bkj_id', $id_bkj) 
+    //                     ->get();
 
-        return view('pages.kemahasiswaan.detailbkj', compact('bkj', 'list_galeri'));
-    }
+    //     return view('pages.kemahasiswaan.detailbkj', compact('bkj', 'list_galeri'));
+    // }
 
     /**
      * Menampilkan form edit data galeri
