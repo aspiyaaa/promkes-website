@@ -23,17 +23,14 @@ class StrukturController extends Controller
 }
 
     public function civitas(Request $request) {
-        // $data = [
-        //     'nama_lengkap' => 'Afifah Zhafirah',
-        //     'nip' => 'P17336124401',
-        //     'jabatan' => 'Dosen Ahli'
-        // ];
+    
         $search = $request->keyword;
 
         $civitas = civitas::when($search, function($query,$search){
             return $query->where('nama_lengkap','like',"%{$search}%");
         })
         ->join('kategori_civitas','civitas_akademik.kategori_id','=','kategori_civitas.id_kategori')
+        ->orderByRaw('LEFT(nip, 4) ASC')
         ->get();
         return view('pages.admin.civitas.show', ['data_civitas'=>$civitas]);
     }
