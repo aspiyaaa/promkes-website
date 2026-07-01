@@ -24,7 +24,7 @@
     @include('layouts.slide')
     
     <!-- isi konten -->
-    <div class="container-fluid mt-2">
+    <div class="container-fluid mt-2" style="background: #EEF5F6;">
         <div class="mt-2" style="background: #3f8290; height:5px;"></div>
         <div style="background:#ff6200; width:95%; height:5px; margin:5px auto 0;"></div>
         <div style="background:#3f8290; width:90%; height:5px; margin:5px auto 0;"></div>

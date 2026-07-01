@@ -66,6 +66,10 @@
                     <i class="fas fa-running fa-sm text-gray-400 mr-1"></i> Data UKMJ
                 </a>
 
+                <a class="collapse-item d-flex align-items-center gap-2 {{ Request::is('prestasi*') ? 'active' : '' }}" href="/prestasi">
+                    <i class="fas fa-running fa-sm text-gray-400 mr-1"></i> Data Prestasi
+                </a>
+
                 <a class="collapse-item d-flex align-items-center gap-2 {{ Request::is('berita*') ? 'active' : '' }}" href="/berita">
                     <i class="fas fa-newspaper fa-sm text-gray-400 mr-1"></i> Data Berita
                 </a>

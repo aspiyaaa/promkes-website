@@ -5,6 +5,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\BkjController;
 use App\Http\Controllers\GaleriBkjController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\StrukturController;
 use App\Http\Controllers\UkmjController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,7 @@ Route::get('/BKJ', [BkjController::class, 'index']);
 Route::get('/BKJ/{id_bkj}/galeri', [GaleriBkjController::class, 'showGaleri'])->name('bkj.galeri');
 Route::get('/UKMJ', [UkmjController::class, 'index']);
 Route::view('/layanan', 'pages.kemahasiswaan.layanan');
+Route::get('/prestasi_mahasiswa', [PrestasiController::class, 'index']);
 Route::view('/tracer', 'pages.kemahasiswaan.tracer');
 
 // navbar fasilitas
@@ -105,3 +107,12 @@ Route::get('/berita/{slug}', [BeritaController::class, 'detail']);
 Route::get('/berita/{id}/edit', [BeritaController::class, 'edit']);
 Route::put('/berita/{id}', [BeritaController::class, 'update']);
 Route::delete('/berita/{id}', [BeritaController::class, 'destroy']);
+
+// prestasi
+Route::get('/prestasi', [PrestasiController::class, 'prestasi']);
+Route::get('/prestasi/create', [PrestasiController::class, 'create']);
+Route::post('/prestasi', [PrestasiController::class, 'store']);
+Route::get('/prestasi/{slug}', [PrestasiController::class, 'detail']);
+Route::get('/prestasi/{id}/edit', [PrestasiController::class, 'edit']);
+Route::put('/prestasi/{id}', [PrestasiController::class, 'update']);
+Route::delete('/prestasi/{id}', [PrestasiController::class, 'destroy']);

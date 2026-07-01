@@ -107,6 +107,8 @@
                         <li><hr class="dropdown-divider opacity-50"></li>
                         <li><a class="dropdown-item" href="/layanan">Layanan Kemahasiswaan</a></li>
                         <li><hr class="dropdown-divider opacity-50"></li>
+                        <li><a class="dropdown-item" href="/prestasi_mahasiswa">Prestasi Mahasiswa Promkes</a></li>
+                        <li><hr class="dropdown-divider opacity-50"></li>
                         <li><a class="dropdown-item" href="/tracer">Tracer Study</a></li>
                     </ul>
                 </li>
@@ -119,8 +121,6 @@
                         <li><a class="dropdown-item" href="/ruangkelas">Ruang Kelas</a></li>
                         <li><hr class="dropdown-divider opacity-50"></li>
                         <li><a class="dropdown-item" href="/lab">Laboratorium</a></li>
-                        <li><hr class="dropdown-divider opacity-50"></li>
-                        <li><a class="dropdown-item" href="/fasilitaslain">Fasilitas Lain</a></li>
                         <li><hr class="dropdown-divider opacity-50"></li>
                         <li><a class="dropdown-item" href="/peminjaman">Peminjaman Lab</a></li>
                     </ul>

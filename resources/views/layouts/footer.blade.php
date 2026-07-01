@@ -54,7 +54,7 @@
 }
 </style>
 
-<div class="mt-5" style="background: #ff8533; height:5px;"></div>
+<div style="background: #ff8533; height:5px;"></div>
 <footer class="footer-custom pt-5 pb-3">
     <div class="container">
         <div class="row g-4 justify-content-between">
