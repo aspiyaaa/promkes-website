@@ -38,14 +38,15 @@
         Menu Utama
     </div>
 
-    <li class="nav-item {{ Request::is('civitas*') || Request::is('kategori*') || Request::is('badan_kelengkapan_jurusan*') || Request::is('ukmj*') || Request::is('berita*') ? 'active' : '' }}">
-        <a class="nav-link {{ Request::is('civitas*') || Request::is('kategori*') || Request::is('badan_kelengkapan_jurusan*') || Request::is('ukmj*') || Request::is('berita*') ? '' : 'collapsed' }}" 
+    <!-- 1. MANAJEMEN DATA -->
+    <li class="nav-item {{ Request::is('civitas*') || Request::is('kategori*') || Request::is('badan_kelengkapan_jurusan*') || Request::is('ukmj*') || Request::is('prestasi*') || Request::is('ruangan*') || Request::is('berita*') ? 'active' : '' }}">
+        <a class="nav-link {{ Request::is('civitas*') || Request::is('kategori*') || Request::is('badan_kelengkapan_jurusan*') || Request::is('ukmj*') || Request::is('prestasi*') || Request::is('ruangan*') || Request::is('berita*') ? '' : 'collapsed' }}" 
            href="#" data-toggle="collapse" data-target="#collapseDataMaster"
            aria-expanded="true" aria-controls="collapseDataMaster">
             <i class="fas fa-fw fa-folder-open"></i>
             <span>Manajemen Data</span>
         </a>
-        <div id="collapseDataMaster" class="collapse {{ Request::is('civitas*') || Request::is('kategori*') || Request::is('badan_kelengkapan_jurusan*') || Request::is('ukmj*') || Request::is('berita*') ? 'show' : '' }}" 
+        <div id="collapseDataMaster" class="collapse {{ Request::is('civitas*') || Request::is('kategori*') || Request::is('badan_kelengkapan_jurusan*') || Request::is('ukmj*') || Request::is('prestasi*') || Request::is('ruangan*') || Request::is('berita*') ? 'show' : '' }}" 
              aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded shadow-sm">
                 <h6 class="collapse-header text-gray-500 font-weight-bold">Daftar Data:</h6>
@@ -67,7 +68,11 @@
                 </a>
 
                 <a class="collapse-item d-flex align-items-center gap-2 {{ Request::is('prestasi*') ? 'active' : '' }}" href="/prestasi">
-                    <i class="fas fa-running fa-sm text-gray-400 mr-1"></i> Data Prestasi
+                    <i class="fas fa-trophy fa-sm text-gray-400 mr-1"></i> Data Prestasi
+                </a>
+
+                <a class="collapse-item d-flex align-items-center gap-2 {{ Request::is('ruangan*') ? 'active' : '' }}" href="/ruangan">
+                    <i class="fas fa-door-open fa-sm text-gray-400 mr-1"></i> Data Ruangan
                 </a>
 
                 <a class="collapse-item d-flex align-items-center gap-2 {{ Request::is('berita*') ? 'active' : '' }}" href="/berita">
@@ -77,6 +82,7 @@
         </div>
     </li>
 
+    <!-- 2. GALERI -->
     <li class="nav-item {{ Request::is('galeri_bkj*') || Request::is('galeri_ukmj*') ? 'active' : '' }}">
         <a class="nav-link {{ Request::is('galeri_bkj*') || Request::is('galeri_ukmj*') ? '' : 'collapsed' }}" 
            href="#" data-toggle="collapse" data-target="#collapseGaleri"
@@ -98,6 +104,14 @@
                 </a>
             </div>
         </div>
+    </li>
+
+    <!-- 3. MENU MASUKAN & SARAN (DIPISAH SENDIRI MENGGUNAKAN SINGLE NAV-ITEM) -->
+    <li class="nav-item {{ Request::is('aspirasi*') ? 'active' : '' }}">
+        <a class="nav-link" href="/aspirasi">
+            <i class="fas fa-fw fa-comment-dots"></i>
+            <span>Masukan & Saran</span>
+        </a>
     </li>
 
     <hr class="sidebar-divider d-none d-md-block">

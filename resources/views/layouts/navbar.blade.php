@@ -122,6 +122,8 @@
                         <li><hr class="dropdown-divider opacity-50"></li>
                         <li><a class="dropdown-item" href="/lab">Laboratorium</a></li>
                         <li><hr class="dropdown-divider opacity-50"></li>
+                        <li><a class="dropdown-item" href="/aspirasi_saran/create">Aspirasi & Saran</a></li>
+                        <li><hr class="dropdown-divider opacity-50"></li>
                         <li><a class="dropdown-item" href="/peminjaman">Peminjaman Lab</a></li>
                     </ul>
                 </li>

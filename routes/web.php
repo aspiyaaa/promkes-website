@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AspirasiController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\BkjController;
 use App\Http\Controllers\GaleriBkjController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PrestasiController;
+use App\Http\Controllers\RuanganController;
 use App\Http\Controllers\StrukturController;
 use App\Http\Controllers\UkmjController;
 use Illuminate\Support\Facades\Route;
@@ -37,9 +39,10 @@ Route::get('/prestasi_mahasiswa', [PrestasiController::class, 'index']);
 Route::view('/tracer', 'pages.kemahasiswaan.tracer');
 
 // navbar fasilitas
-Route::view('/ruangkelas', 'pages.fasilitas.ruangkelas');
-Route::view('/lab', 'pages.fasilitas.lab');
-Route::view('/fasilitaslain', 'pages.fasilitas.fasilitaslain');
+Route::get('/ruangkelas', [RuanganController::class, 'userKelas']);
+Route::get('/lab', [RuanganController::class, 'userLab']);
+Route::get('/aspirasi_saran/create', [AspirasiController::class, 'create']); 
+Route::post('/aspirasi_saran', [AspirasiController::class, 'store']);
 Route::view('/peminjaman', 'pages.fasilitas.peminjaman');
 
 // navbar bertita
@@ -89,7 +92,6 @@ Route::get('/galeri_bkj/{id}/edit', [GaleriBkjController::class, 'edit']);
 Route::put('/galeri_bkj/{id}', [GaleriBkjController::class, 'update']);
 Route::delete('/galeri_bkj/{id}', [GaleriBkjController::class, 'destroy']);
 
-
 // unit kegiatan mahasiswa
 Route::get('/ukmj', [UkmjController::class, 'ukmj']);
 Route::get('/ukmj/create', [UkmjController::class, 'create']);
@@ -116,3 +118,17 @@ Route::get('/prestasi/{slug}', [PrestasiController::class, 'detail']);
 Route::get('/prestasi/{id}/edit', [PrestasiController::class, 'edit']);
 Route::put('/prestasi/{id}', [PrestasiController::class, 'update']);
 Route::delete('/prestasi/{id}', [PrestasiController::class, 'destroy']);
+
+// ruangan
+Route::get('/ruangan', [RuanganController::class, 'ruangan']);
+Route::get('/ruangan/create', [RuanganController::class, 'create']);
+Route::post('/ruangan', [RuanganController::class, 'store']);
+Route::get('/ruangan/{slug}', [RuanganController::class, 'detail']);
+Route::get('/ruangan/{id}/edit', [RuanganController::class, 'edit']);
+Route::put('/ruangan/{id}', [RuanganController::class, 'update']);
+Route::delete('/ruangan/{id}', [RuanganController::class, 'destroy']);
+
+// aspirasi
+Route::get('/aspirasi', [AspirasiController::class, 'aspirasi']);
+Route::get('/aspirasi/{id}', [AspirasiController::class, 'detail']);
+Route::delete('/aspirasi/{id}', [AspirasiController::class, 'destroy']);
