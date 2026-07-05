@@ -50,7 +50,9 @@ Route::get('/news', [BeritaController::class, 'index']);
 Route::get('/news/{slug}', [BeritaController::class, 'detailuser']);
 
 // ==================== HALAMAN ADMIN ====================
-Route::get('/admin', [AdminController::class, 'index']);
+Route::middleware(['auth'])->group(function () {
+
+Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
 // civitas
 Route::get('/civitas', [StrukturController::class, 'civitas']); //menampilkan seluruh data civitas
@@ -132,3 +134,7 @@ Route::delete('/ruangan/{id}', [RuanganController::class, 'destroy']);
 Route::get('/aspirasi', [AspirasiController::class, 'aspirasi']);
 Route::get('/aspirasi/{id}', [AspirasiController::class, 'detail']);
 Route::delete('/aspirasi/{id}', [AspirasiController::class, 'destroy']);
+
+});
+
+require __DIR__.'/auth.php';
